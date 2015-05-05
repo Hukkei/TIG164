@@ -9,6 +9,10 @@ import javax.swing.GroupLayout.Alignment;
 import java.awt.CardLayout;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JLabel;
 
 
 public class GUI {
@@ -47,7 +51,6 @@ public class GUI {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JPanel mainPanel = new JPanel();
-		frame.getContentPane().add(mainPanel, BorderLayout.CENTER);
 		
 		JPanel firstPanel = new JPanel();
 		
@@ -59,31 +62,78 @@ public class GUI {
 		
 		JButton btnNewButton = new JButton("New button");
 		btnNewButton.setIcon(new ImageIcon("C:\\Users\\hukkei\\Pictures\\05.jpg"));
+		
+		JButton btnInfo = new JButton("New button");
+		
+		JLabel lblGULogo = new JLabel("New label");
+		
+		JLabel lblChalmersLogo = new JLabel("New label");
 		GroupLayout gl_firstPanel = new GroupLayout(firstPanel);
 		gl_firstPanel.setHorizontalGroup(
 			gl_firstPanel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_firstPanel.createSequentialGroup()
-					.addGap(40)
-					.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 94, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(170, Short.MAX_VALUE))
+					.addGroup(gl_firstPanel.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_firstPanel.createSequentialGroup()
+							.addGap(26)
+							.addComponent(lblGULogo))
+						.addGroup(gl_firstPanel.createSequentialGroup()
+							.addGap(38)
+							.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 80, GroupLayout.PREFERRED_SIZE)))
+					.addPreferredGap(ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+					.addGroup(gl_firstPanel.createParallelGroup(Alignment.LEADING)
+						.addGroup(Alignment.TRAILING, gl_firstPanel.createSequentialGroup()
+							.addComponent(lblChalmersLogo)
+							.addGap(47))
+						.addGroup(Alignment.TRAILING, gl_firstPanel.createSequentialGroup()
+							.addComponent(btnInfo)
+							.addGap(28))))
 		);
 		gl_firstPanel.setVerticalGroup(
 			gl_firstPanel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_firstPanel.createSequentialGroup()
-					.addGap(41)
-					.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 85, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(403, Short.MAX_VALUE))
+					.addGap(61)
+					.addGroup(gl_firstPanel.createParallelGroup(Alignment.BASELINE)
+						.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 74, GroupLayout.PREFERRED_SIZE)
+						.addComponent(btnInfo, GroupLayout.PREFERRED_SIZE, 70, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(ComponentPlacement.RELATED, 272, Short.MAX_VALUE)
+					.addGroup(gl_firstPanel.createParallelGroup(Alignment.BASELINE)
+						.addComponent(lblGULogo)
+						.addComponent(lblChalmersLogo))
+					.addGap(108))
 		);
 		firstPanel.setLayout(gl_firstPanel);
 		mainPanel.add(bookPanel, "bookPanel");
+		
+		JButton btnReserve = new JButton("New button");
+		
+		JButton btnUnreserve = new JButton("New button");
+		
+		JButton btnHistory = new JButton("New button");
+		btnHistory.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
 		GroupLayout gl_bookPanel = new GroupLayout(bookPanel);
 		gl_bookPanel.setHorizontalGroup(
 			gl_bookPanel.createParallelGroup(Alignment.LEADING)
-				.addGap(0, 10, Short.MAX_VALUE)
+				.addGroup(Alignment.TRAILING, gl_bookPanel.createSequentialGroup()
+					.addContainerGap()
+					.addGroup(gl_bookPanel.createParallelGroup(Alignment.TRAILING)
+						.addComponent(btnReserve, GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
+						.addComponent(btnUnreserve, GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
+						.addComponent(btnHistory, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+					.addGap(26))
 		);
 		gl_bookPanel.setVerticalGroup(
 			gl_bookPanel.createParallelGroup(Alignment.LEADING)
-				.addGap(0, 529, Short.MAX_VALUE)
+				.addGroup(gl_bookPanel.createSequentialGroup()
+					.addGap(92)
+					.addComponent(btnReserve, GroupLayout.PREFERRED_SIZE, 44, GroupLayout.PREFERRED_SIZE)
+					.addGap(41)
+					.addComponent(btnUnreserve, GroupLayout.PREFERRED_SIZE, 53, GroupLayout.PREFERRED_SIZE)
+					.addGap(48)
+					.addComponent(btnHistory, GroupLayout.PREFERRED_SIZE, 41, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(210, Short.MAX_VALUE))
 		);
 		bookPanel.setLayout(gl_bookPanel);
 		mainPanel.add(mapPanel, "mapPanel");
@@ -99,7 +149,17 @@ public class GUI {
 		mapPanel.setLayout(gl_mapPanel);
 		
 		final CardLayout cardLayout = (CardLayout) mainPanel.getLayout();
-		//cardLayout.show(mainPanel, "firstPanel");
+		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
+		groupLayout.setHorizontalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addComponent(mainPanel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+		);
+		groupLayout.setVerticalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addComponent(mainPanel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+		);
+		frame.getContentPane().setLayout(groupLayout);
+		
 		
 		
 		
