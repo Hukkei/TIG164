@@ -5,7 +5,7 @@ import javax.swing.JFrame;
 
 public class MainScreen {
 
-	private JFrame frame;
+	private JFrame StartFrame;
 
 	/**
 	 * Launch the application.
@@ -15,7 +15,7 @@ public class MainScreen {
 			public void run() {
 				try {
 					MainScreen window = new MainScreen();
-					window.frame.setVisible(true);
+					window.StartFrame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -34,9 +34,9 @@ public class MainScreen {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		StartFrame = new JFrame();
+		StartFrame.setBounds(100, 100, 450, 300);
+		StartFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
 }
