@@ -61,7 +61,6 @@ public class GUI {
 		mainPanel.add(firstPanel, "firstPanel");
 		
 		JButton btnNewButton = new JButton("New button");
-		btnNewButton.setIcon(new ImageIcon("C:\\Users\\hukkei\\Pictures\\05.jpg"));
 		
 		JButton btnInfo = new JButton("New button");
 		
