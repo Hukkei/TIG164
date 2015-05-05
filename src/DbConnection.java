@@ -3,7 +3,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import java.util.*;
-
+hej
 public class DbConnection {
 	Connection c; 
 	
