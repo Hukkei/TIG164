@@ -3,7 +3,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import java.util.*;
-hej
+
 public class DbConnection {
 	Connection c; 
 	
@@ -12,7 +12,7 @@ public class DbConnection {
 	try {
 		{
 		Class.forName("org.sqlite.JDBC");
-		c = DriverManager.getConnection("jdbc:sqlite:" + paneInput.SendPaneToBase());
+		c = DriverManager.getConnection("jdbc:sqlite:");
 		}
 	} catch (SQLException e) {
 	    System.out.println("Kan inte skapa ett DB-objekt korrekt" + e);
